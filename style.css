@@ -40,3 +40,7 @@ body {
     color:#ff0000;
     background:#000000;
 }
+@font-face {
+            font-family: maoti;
+            src: url(./ziti/maoti.ttf) 
+}
