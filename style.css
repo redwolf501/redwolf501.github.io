@@ -1,6 +1,11 @@
 body {
     background:linear-gradient(to bottom,#dd0000,#110000,#dd0000);
 }
+hr {
+    height:1px;
+    border:none;
+    border-top:3px dashed #df0000;
+}
 .dt {
     background:#000000;
     box-sizing:boder-box;
@@ -11,6 +16,7 @@ body {
     padding:0px;
     color:#ff0000;
 }
+/*class dt是网页顶部导航栏，dttb1 2是3条横线*/
 .dttb1 {
     left:0;
     right:0;
@@ -25,6 +31,7 @@ body {
     height:4px;
     background:#000000;
 }
+/*dbom是写内容的div框的父元素。dbo1是写内容的div。*/
 .dbom {
     position:absolute;
     top:100px;
@@ -40,8 +47,54 @@ body {
     color:#ff0000;
     background:#000000;
     margin:0 auto;
+    /*flex-wrap:wrap;
+    display:flex;*/
+}
+/*tomain是回到主页按钮*/
+div.tomain {
+    float:left;
+    height:65px;
+    width:65px;
+    text-align:center;
+    border:3px double #e53333;
+}
+a.tomain {
+    color:#ff0000;
+    font-size:55px;
+    transition:color 0.5s,font-weight 0.5s;
+}
+a.tomain:hover {
+    color:ff5555;
+    /*font-weight:bold;*/
+    margin:0 auto;
+}
+.tdtx {
+    font-size:60px;
+    font-weight:bold;
+    font-family:maoti;
+}/* tdtx是“红狼网”样式 */
+div.download {
+    display:inline-block;
+    background:#000000;border:1px solid #ff0000;
+    width:49%;
+    text-align:left;
+    padding:10px;
+    box-sizing:border-box;
+}
+.dona{
+    font-weight:bold;
+    font-size:18px;
+    line-height:7px;
+}/*下载的项目名字*/
+.domi{
+    line-height:7px;
+    color:;
+}/*下载的项目描述等*/
+button.download {
+    background:#e53333;
+    float:right;
 }
 @font-face {
-            font-family: maoti;
-            src: url(./ziti/maoti.ttf) 
-}
+    font-family: maoti;
+    src: url(./ziti/maoti.ttf)
+}/*毛体*/
