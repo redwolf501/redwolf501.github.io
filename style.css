@@ -33,16 +33,14 @@ hr {
 }
 /*dbom是写内容的div框的父元素。dbo1是写内容的div。*/
 .dbom {
-    position:absolute;
-    top:100px;
-    left:15;
-    right:15;
+    position:absolute;top:100;left:0;right:0;
+    width:100%
+    /*margin:100 0;background:#fff;width:100%;*/
 }
 .dbo1 {
-    width:925px;
+    max-width:925px;width:90%;
     border:1px solid #ff0000;
-    border-radius:10px;
-    -moz-border-radius:10px;
+    border-radius:10px;-moz-border-radius:10px;
     padding:10px;
     color:#ff0000;
     background:#000000;
@@ -73,13 +71,20 @@ a.tomain:hover {
     font-weight:bold;
     font-family:maoti;
 }/* tdtx是“红狼网”样式 */
+div.dldad{
+/* div.download的父元素 */
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-around;
+}
 div.download {
-    display:inline-block;
+    
     background:#000000;border:1px solid #ff0000;
-    width:49%;
+    width:350px;
     text-align:left;
     padding:10px;
     box-sizing:border-box;
+    margin:4px;
 }
 .dona{
     font-weight:bold;
@@ -90,6 +95,11 @@ div.download {
     line-height:7px;
     color:;
 }/*下载的项目描述等*/
+img.download{
+    width:98%;
+    height:270px;
+    margin:0 auto;
+}
 button.download {
     background:#e53333;
     float:right;

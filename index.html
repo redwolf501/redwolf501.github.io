@@ -2,32 +2,33 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Red★Wolf</title><!--网站标题-->
         <link rel="shortcut icon" href="photo/title.jpg" type="image/x-icon"><!--网站图标-->
         <link rel="stylesheet" type="text/css" href="style.css">
         <style tape="text-css">
 .dc0{
 position:absolute;
-border:1px solid #000000;
+border:1px solid #770000;
 width:49%;height:48%;
 background-size:100% 100%;
 transition:width 1s,height 1s;
 }
 .dc1{
 top:6;left:6;
-background-image:url(https://s1.imagehub.cc/images/2022/10/31/button_skin_download.png);
+background-image:url(photo/button_skin_download.png);
 }
 .dc2{
 top:6;right:6;
-background-image:url(https://s1.imagehub.cc/images/2022/10/31/button_addon_download.png);
+background-image:url(photo/button_addon_download.png);
 }
 .dc3{
 bottom:6;left:6;
-background-image:url(https://s1.imagehub.cc/images/2022/10/31/button_history.png);
+background-image:url(photo/button_history.png);
 }
 .dc4{
 bottom:6;right:6;
-background-image:url(https://s1.imagehub.cc/images/2022/10/31/button_talk.png);
+background-image:url(photo/button_talk.png);
 }
 .dc0:hover{
 width:50%;
@@ -36,6 +37,18 @@ z-index:2;
 }
 .star{transition:font-size 1s;}
 .star:hover{font-size:32px;}
+.lefttool{
+    position:fixed;
+    left:10;top:0;bottom:0;
+    margin:auto 0;
+    background:;opacity:90%;
+    width:55px;height:50px;
+}
+.tool1{
+    border:2px solid #ff0000;
+    background:#FFFFFF;
+    opacity:90%;
+}
         </style>
     </head>
     <body>
@@ -50,22 +63,26 @@ z-index:2;
             <div class="dbo1">
                 <div style="text-align:center;">
                     <p>–==≡≡≡≡<span class="star">★</span>≡≡≡≡==–</p>
-                    <p><span style="font-size:64px;font-weight:bold;">欢迎来到红狼网！</span></p>
+                    <p><span class="" style="font-size:40px;font-weight:bold;">欢迎来到红狼网！</span></p>
                     <!--p><a style="color:#990000;text-decoration:underline;" href="liaojie.html">点击这里了解什么是“红狼”</a></p--> 
-                    <!--img src="photo/2.png" width="920" alt="图片"--> <img src="https://s1.imagehub.cc/images/2022/10/31/2203a1decd0182bcf.png" width="100%" alt="图片">
+                    <!--img src="photo/2.png" width="920" alt="图片"--> <img src="photo/2.png" width="100%" alt="图片">
                 </div>
             </div> <br>
-            <div class="dbo1" style="position:relative;">
+            <div class="dbo1" style="position:relative;padding-top:57%">
                 <a href="https://redwolf501.github.io/sd"><div class="dc0 dc1" style=""></div></a><a href="https://redwolf501.github.io/ad"><div class="dc0 dc2"></div></a>
                 <a href="https://redwolf501.github.io/hty"><div class="dc0 dc3"></div></a><a onclick="alert('暂未开放')"><div class="dc0 dc4"></div></a>
-                <div style="height:520px"></div>
+                <!--div style="max-height:520px;height:520px"></div-->
             </div> <br>
             <div class="dbo1" style="height:500px">
             </div> <br>
             
         </div>
         
+        <div id="lefttool" class="lefttool">
+            <div class="tool1"><a style="font-size:50px;font-weight:bold;" onclick="totop()">&nbsp;#&nbsp;</a></div>
+        </div>
         
+        <script type="text/javascript" src="main.js" ></script>
         
         <!--
         注释：图片链接“成就:大海航行靠舵手” https://www.bing.com/images/blob?bcid=S4WFWtZWydYErA “成就:东方红巴黎” https://www.bing.com/images/blob?bcid=S7cetHJwRdYEfg
