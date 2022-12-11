@@ -3,9 +3,9 @@ window.onscroll = function() {scrollFunction()};
  
 function scrollFunction() {console.log(121);
     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-        document.getElementById("lefttool").style.display = "block";
+        document.getElementById("tool").style.display = "block";
     } else {
-        document.getElementById("lefttool").style.display = "none";
+        document.getElementById("tool").style.display = "none";
     }
 }
  
