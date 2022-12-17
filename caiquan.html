@@ -4,38 +4,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 //var math = Math.floor(Math.random() * 3);//取0，1，2
+var you=0;
+var bot=0;
 function st(){//石头
     var math = Math.floor(Math.random() * 3);//取0，1，2
     if (math>1){document.getElementById("txt").innerHTML="<p>你：石头，对方：石头，平局</p>"}//石头
-else if(math>0){document.getElementById("txt").innerHTML="<p>你：石头，对方：剪刀，你赢了</p>"}//剪刀
-else{document.getElementById("txt").innerHTML="<p>你：石头，对方：布，你输了</p>"}//布
-}
-function st(){//石头
-    var math = Math.floor(Math.random() * 3);//取0，1，2
-    if (math>1){document.getElementById("txt").innerHTML="<p>你：石头，对方：石头，平局</p>"}//石头
-else if(math>0){document.getElementById("txt").innerHTML="<p>你：石头，对方：剪刀，你赢了</p>"}//剪刀
-else{document.getElementById("txt").innerHTML="<p>你：石头，对方：布，你输了</p>"}//布
+    else if(math>0){
+        document.getElementById("txt").innerHTML="<p>你：石头，对方：剪刀，你赢了</p>";
+        you=you+1;
+        document.getElementById("you").innerHTML=you;
+    }//剪刀
+    else{
+        document.getElementById("txt").innerHTML="<p>你：石头，对方：布，你输了</p>";
+        bot=bot+1;
+        document.getElementById("bot").innerHTML=bot;
+    }//布
 }
 function jd(){//剪刀
     var math = Math.floor(Math.random() * 3);//取0，1，2
-    if (math>1){document.getElementById("txt").innerHTML="<p>你：剪刀，对方：石头，你输了</p>"}//石头
-else if(math>0){document.getElementById("txt").innerHTML="<p>你：剪刀，对方：剪刀，平局</p>"}//剪刀
-else{document.getElementById("txt").innerHTML="<p>你：剪刀，对方：布，你赢了</p>"}//布
+    if (math>1){
+        document.getElementById("txt").innerHTML="<p>你：剪刀，对方：石头，你输了</p>";
+        bot=bot+1;
+        document.getElementById("bot").innerHTML=bot;
+    }//石头
+    else if(math>0){document.getElementById("txt").innerHTML="<p>你：剪刀，对方：剪刀，平局</p>"}//剪刀
+    else{
+        document.getElementById("txt").innerHTML="<p>你：剪刀，对方：布，你赢了</p>";
+        you=you+1;
+        document.getElementById("you").innerHTML=you;
+    }//布
+    
 }
 function bu(){//布
     var math = Math.floor(Math.random() * 3);//取0，1，2
-    if (math>1){document.getElementById("txt").innerHTML="<p>你：布，对方：石头，你赢了</p>"}//石头
-else if(math>0){document.getElementById("txt").innerHTML="<p>你：布，对方：剪刀，你输了</p>"}//剪刀
-else{document.getElementById("txt").innerHTML="<p>你：布，对方：布，平局</p>"}//布
+    if (math>1){
+        document.getElementById("txt").innerHTML="<p>你：布，对方：石头，你赢了</p>";
+        you=you+1;
+        document.getElementById("you").innerHTML=you;
+    }//石头
+    else if(math>0){
+        document.getElementById("txt").innerHTML="<p>你：布，对方：剪刀，你输了</p>";
+        bot=bot+1;
+        document.getElementById("bot").innerHTML=bot;
+    }//剪刀
+    else{document.getElementById("txt").innerHTML="<p>你：布，对方：布，平局</p>"}//布
+    
 }
     //document.getElementById("txt").innerHTML=""
 </script>
+<style>
+.button{
+    display:flex;
+}
+body{background:#f3f3f3;}
+</style>
     </head>
     <body>
         <h1>猜拳</h1>
-        <p><button onclick="st()">石头</button></p>
-        <p><button onclick="jd()">剪刀</button></p>
-        <p><button onclick="bu()">布</button></p>
-        <div id="txt"></div>
+        <button onclick="st()">石头</button>
+        <button onclick="jd()">剪刀</button>
+        <button onclick="bu()">布</button>
+        <div id="txt">无结果</div>
+        你：<span id="you">0</span>。对方：<span id="bot">0</span>
     </body>
 </html>
