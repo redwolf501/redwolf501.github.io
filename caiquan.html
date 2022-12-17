@@ -1,0 +1,38 @@
+<html>
+    <head>
+<script>
+//var math = Math.floor(Math.random() * 3);//取0，1，2
+function st(){//石头
+    var math = Math.floor(Math.random() * 3);//取0，1，2
+    if (math>1){document.getElementById("txt").innerHTML="<p>你：石头，对方：石头，平局</p>"}//石头
+else if(math>0){document.getElementById("txt").innerHTML="<p>你：石头，对方：剪刀，你赢了</p>"}//剪刀
+else{document.getElementById("txt").innerHTML="<p>你：石头，对方：布，你输了</p>"}//布
+}
+function st(){//石头
+    var math = Math.floor(Math.random() * 3);//取0，1，2
+    if (math>1){document.getElementById("txt").innerHTML="<p>你：石头，对方：石头，平局</p>"}//石头
+else if(math>0){document.getElementById("txt").innerHTML="<p>你：石头，对方：剪刀，你赢了</p>"}//剪刀
+else{document.getElementById("txt").innerHTML="<p>你：石头，对方：布，你输了</p>"}//布
+}
+function jd(){//剪刀
+    var math = Math.floor(Math.random() * 3);//取0，1，2
+    if (math>1){document.getElementById("txt").innerHTML="<p>你：剪刀，对方：石头，你输了</p>"}//石头
+else if(math>0){document.getElementById("txt").innerHTML="<p>你：剪刀，对方：剪刀，平局</p>"}//剪刀
+else{document.getElementById("txt").innerHTML="<p>你：剪刀，对方：布，你赢了</p>"}//布
+}
+function bu(){//布
+    if (math>1){document.getElementById("txt").innerHTML="<p>你：布，对方：石头，你赢了</p>"}//石头
+else if(math>0){document.getElementById("txt").innerHTML="<p>你：布，对方：剪刀，你输了</p>"}//剪刀
+else{document.getElementById("txt").innerHTML="<p>你：布，对方：布，平局</p>"}//布
+}
+    //document.getElementById("txt").innerHTML=""
+</script>
+    </head>
+    <body>
+        <h1>猜拳</h1>
+        <p><button onclick="st()">石头</button></p>
+        <p><button onclick="jd()">剪刀</button></p>
+        <p><button onclick="bu()">布</button></p>
+        <div id="txt"></div>
+    </body>
+</html>
