@@ -23,6 +23,7 @@ else if(math>0){document.getElementById("txt").innerHTML="<p>你：剪刀，对�
 else{document.getElementById("txt").innerHTML="<p>你：剪刀，对方：布，你赢了</p>"}//布
 }
 function bu(){//布
+    var math = Math.floor(Math.random() * 3);//取0，1，2
     if (math>1){document.getElementById("txt").innerHTML="<p>你：布，对方：石头，你赢了</p>"}//石头
 else if(math>0){document.getElementById("txt").innerHTML="<p>你：布，对方：剪刀，你输了</p>"}//剪刀
 else{document.getElementById("txt").innerHTML="<p>你：布，对方：布，平局</p>"}//布
