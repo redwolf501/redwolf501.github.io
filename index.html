@@ -6,48 +6,35 @@
         <title>Red★Wolf</title><!--网站标题-->
         <link rel="shortcut icon" href="photo/title.jpg" type="image/x-icon"><!--网站图标-->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><!--font-awesome图标-->
         <style tape="text-css">
 .dc0{
 position:absolute;
 border:1px solid #770000;
-width:49%;height:48%;
+width:49.5%;height:49%;
 background-size:100% 100%;
 transition:width 1s,height 1s;
 }
 .dc1{
-top:6;left:6;
+top:0;left:0;
 background-image:url(photo/button_skin_download.png);
 }
 .dc2{
-top:6;right:6;
+top:0;right:0;
 background-image:url(photo/button_addon_download.png);
 }
 .dc3{
-bottom:6;left:6;
+bottom:0;left:0;
 background-image:url(photo/button_history.png);
 }
 .dc4{
-bottom:6;right:6;
+bottom:0;right:0;
 background-image:url(photo/button_talk.png);
 }
 .dc0:hover{
 width:50%;
-height:49%;
+height:50%;
 z-index:2;
-}
-.star{transition:font-size 1s;}
-.star:hover{font-size:32px;}
-.tool{
-    display:none;
-    position:fixed;
-    top:15;right:15;
-    background:;opacity:90%;
-    width:55px;height:50px;
-}
-.tool1{
-    border:2px solid #ff0000;
-    background:#FFFFFF;
-    opacity:90%;
 }
         </style>
     </head>
@@ -68,18 +55,20 @@ z-index:2;
                     <!--img src="photo/2.png" width="920" alt="图片"--> <img src="photo/2.png" width="100%" alt="图片">
                 </div>
             </div> <br>
-            <div class="dbo1" style="position:relative;padding-top:57%">
+            <div class="dbo1" style="position:relative;padding-top:57%;"><div style="position:absolute;top:6;left:6;right:6;bottom:6;">
                 <a href="https://redwolf501.github.io/sd"><div class="dc0 dc1" style=""></div></a><a href="https://redwolf501.github.io/ad"><div class="dc0 dc2"></div></a>
                 <a href="https://redwolf501.github.io/hty"><div class="dc0 dc3"></div></a><a onclick="alert('暂未开放')"><div class="dc0 dc4"></div></a>
                 <!--div style="max-height:520px;height:520px"></div-->
-            </div> <br>
+            </div></div> <br>
             <div class="dbo1" style="height:500px">
             </div> <br>
             
         </div>
         
         <div id="tool" class="tool">
-            <div class="tool1"><a style="font-size:50px;font-weight:bold;" onclick="totop()">&nbsp;#&nbsp;</a></div>
+            <div class="showtool"><div class="sp1"><i class="fa fa-angle-down"></i></div></div>
+            <div class="tool1"><a style="font-size:45px;font-weight:bold;" onclick="totop()">#</a></div>
+            <div class="tool1"><a style="font-size:45px;font-weight:bold;" href="https://redwolf501.github.io/"><i class="fa fa-home"></i></a></div>
         </div>
         
         <script type="text/javascript" src="main.js" ></script>

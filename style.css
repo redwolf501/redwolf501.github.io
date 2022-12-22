@@ -104,6 +104,49 @@ button.download {
     background:#e53333;
     float:right;
 }
+.star{transition:font-size 1s;}
+.star:hover{font-size:32px;}
+/*tool为悬浮的工具栏*/
+.tool{
+    /*display:none;*/
+    position:fixed;
+    top:15;right:15;
+    background:;opacity:90%;
+    /*width:55px;height:50px;*/
+    transition:1s;
+}
+.showtool{
+    border:2px solid #ff0000;
+    background:#FFFFFF;
+    opacity:90%;
+    text-align:center;
+    width:50px;height:50px;
+    box-sizing:border-box;
+}
+.showtool .sp1{
+    font-size:45px;
+    font-weight:bold;
+    transition:1s;
+}
+.tool1{
+    border:2px solid #ff0000;
+    background:#FFFFFF;
+    opacity:0%;
+    text-align:center;
+    width:50px;height:50px;
+    box-sizing:border-box;
+    display:none;
+    transition:1s;
+}
+.tool:hover .tool1{
+    display:block;
+    opacity:90%;
+}
+.tool:hover .sp1{
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Safari and Chrome */
+}
 @font-face {
     font-family: maoti;
     src: url(./ziti/maoti.ttf)
