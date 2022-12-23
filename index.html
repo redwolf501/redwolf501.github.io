@@ -13,7 +13,7 @@ position:absolute;
 border:1px solid #770000;
 width:49.5%;height:49%;
 background-size:100% 100%;
-transition:width 1s,height 1s;
+transition:width 0.5s,height 0.5s;
 }
 .dc1{/* sd photo/button_skin_download.png */
 top:0;left:0;
@@ -40,7 +40,7 @@ z-index:2;
     </head>
     <body>
         <div class="dt" style=""><!--顶上长栏-->
-            <div style="padding:5px"><span style="font-size:60px;font-weight:bold;font-family:maoti;">红狼网</span>
+            <div style="padding:5px"><span class="tdtx" style="">红狼网</span>
             </div>
             <div class="dttb1"></div>
             <div class="dttb2"></div>
@@ -65,10 +65,18 @@ z-index:2;
             
         </div>
         
-        <div id="tool" class="tool">
-            <div class="showtool"><div class="sp1"><i class="fa fa-angle-down"></i></div></div>
-            <div class="tool1"><a style="font-size:45px;font-weight:bold;" onclick="totop()">#</a></div>
-            <div class="tool1"><a style="font-size:45px;font-weight:bold;" href="https://redwolf501.github.io/"><i class="fa fa-home"></i></a></div>
+        <div id="tool" class="tool"><!-- 工具栏 -->
+            <div class="tool1 showtool"><div class="sp1 ticon"><i class="fa fa-angle-down"></i></div></div>
+            <div class="tool1 tool2"><a class="ticon" onclick="totop()">#</a></div>
+            <div class="tool1 tool2"><a class="ticon" href="https://redwolf501.github.io/"><i class="fa fa-home"></i></a></div>
+            <div class="tool1 tool2"><a class="ticon" onclick="showset()"><i class="fa fa-cog"></i></a></div>
+        </div>
+        
+        <div id="set">
+            <div style="text-align:center;">设置<div class="hs"><a onclick="hideset()"><i class="fa fa-times"></i></a></div></div>
+            <hr style="height:1px;border:none;border-top:1px solid #ccc;"/>
+            <div class="sesw">开关示例<label class="switch"><input type="checkbox" onclick=""><div class="slider round"></div></label></div>
+            <p>暂无设置项</p>
         </div>
         
         <script type="text/javascript" src="main.js" ></script>

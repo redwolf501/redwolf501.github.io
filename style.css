@@ -15,6 +15,7 @@ hr {
     position:absolute;
     padding:0px;
     color:#ff0000;
+    height:80px;
 }
 /*class dt是网页顶部导航栏，dttb1 2是3条横线*/
 .dttb1 {
@@ -59,16 +60,16 @@ div.tomain {
 a.tomain {
     color:#ff0000;
     font-size:55px;
+    margin:0 auto;
     transition:color 0.5s,font-weight 0.5s;
 }
 a.tomain:hover {
-    color:ff5555;
+    color:#ff5555;
     /*font-weight:bold;*/
-    margin:0 auto;
 }
 .tdtx {
-    font-size:50px;
-    font-weight:bold;
+    font-size:60px;
+    /*font-weight:bold;*/
     font-family:maoti;
 }/* tdtx是“红狼网”样式 */
 div.dldad{
@@ -116,27 +117,27 @@ button.download {
     transition:1s;
 }
 .showtool{
-    border:2px solid #ff0000;
-    background:#FFFFFF;
     opacity:90%;
-    text-align:center;
-    width:50px;height:50px;
-    box-sizing:border-box;
 }
 .showtool .sp1{
-    font-size:45px;
-    font-weight:bold;
     transition:1s;
 }
 .tool1{
     border:2px solid #ff0000;
     background:#FFFFFF;
-    opacity:0%;
     text-align:center;
     width:50px;height:50px;
     box-sizing:border-box;
+    line-height:50px;
+}
+.tool2{
     display:none;
     transition:1s;
+    opacity:10%;
+}
+.ticon{/*工具栏图标*/
+    font-size:45px;
+    font-weight:bold;
 }
 .tool:hover .tool1{
     display:block;
@@ -146,6 +147,74 @@ button.download {
     transform: rotate(180deg);
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari and Chrome */
+}
+#set{
+    display:none;
+    max-width:500px;width:90%;
+    height:300px;
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    margin:auto auto;
+    background:#ffffff;
+    padding:5px;
+    border-radius:10px;-moz-border-radius:10px;
+    overflow: scroll;
+}
+#set .hs{
+    float:right;
+}
+div.sesw{
+    border-bottom:1px solid #ccc;
+    height:40px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 30px;
+  float:right;
+}
+.switch input {
+    display:none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
 }
 @font-face {
     font-family: maoti;

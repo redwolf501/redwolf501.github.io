@@ -6,6 +6,7 @@
         <title>Skin Download</title><!--网站标题-->
         <link rel="shortcut icon" href="photo/title.jpg" type="image/x-icon"><!--网站图标-->
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><!--font-awesome图标-->
         <style tape="text-css">
 .star{transition:font-size 1s;}
 .star:hover{font-size:32px;}
@@ -26,20 +27,22 @@
                     <p><span style="font-size:64px;font-weight:bold;">皮肤下载</span></p>
                     <hr/></div>
                     <p style="line-height:100px;"><br/><p>
-                        <div class="download">
-                        <img src="？" width="430px" height="270px" alt="图片">
+                    <div class="dldad">
+                    <div class="download">
+                        <img src="？" class="download" alt="图片">
+                        <p class="dona">名称</p>
+                        <p class="domi">描述</p>
+                        <button class="download" download="文件名.txt">下载</button>
+                        <p class="domi">2022.10.10</p>
+                    </div>
+                    <div class="download">
+                        <img src="？" class="download" style="margin:0 auto auto 0;">
                         <p class="dona">名称</p>
                         <p class="domi">描述</p>
                         <button class="download">下载</button>
-                        <p class="domi">2022.10.10</p>
-                        </div>
-                        <div class="download">
-                        <img src="？" width="430px" height="270px">
-                        <p class="dona">名称</p>
-                        <p class="domi">描述</p>
-                        <button class="download">下载</button>
-                        <p class="domi">2022.10.10</p>
-                        </div>
+                        <p class="domi">2022.10.10</p>。
+                    </div>
+                    </div><!--dldad结束-->
                     <!--img src="photo/2.png" width="920" alt="图片"--> <!--img src="https://s1.imagehub.cc/images/2022/10/31/2203a1decd0182bcf.png" width="100%" alt="图片"-->
                 <!--/div-->
             </div> <br>
@@ -49,10 +52,18 @@
             
         </div>
         
-        <div id="tool" class="tool">
-            <div class="showtool"><div class="sp1"><i class="fa fa-angle-down"></i></div></div>
-            <div class="tool1"><a style="font-size:45px;font-weight:bold;" onclick="totop()">#</a></div>
-            <div class="tool1"><a style="font-size:45px;font-weight:bold;" href="https://redwolf501.github.io/"><i class="fa fa-home"></i></a></div>
+        <div id="tool" class="tool"><!-- 工具栏 -->
+            <div class="tool1 showtool"><div class="sp1 ticon"><i class="fa fa-angle-down"></i></div></div>
+            <div class="tool1 tool2"><a class="ticon" onclick="totop()">#</a></div>
+            <div class="tool1 tool2"><a class="ticon" href="https://redwolf501.github.io/"><i class="fa fa-home"></i></a></div>
+            <div class="tool1 tool2"><a class="ticon" onclick="showset()"><i class="fa fa-cog"></i></a></div>
+        </div>
+        
+        <div id="set">
+            <div style="text-align:center;">设置<div class="hs"><a onclick="hideset()"><i class="fa fa-times"></i></a></div></div>
+            <hr style="height:1px;border:none;border-top:1px solid #ccc;"/>
+            <div class="sesw">开关示例<label class="switch"><input type="checkbox" onclick=""><div class="slider round"></div></label></div>
+            <p>暂无设置项</p>
         </div>
         
         <script type="text/javascript" src="main.js" ></script>

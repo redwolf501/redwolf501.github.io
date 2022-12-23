@@ -15,3 +15,15 @@ function totop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+//图片换源
+
+//显示设置
+var set=document.getElementById("set")
+function showset(){
+    set.style.display="block"
+}
+function hideset(){
+    set.style.display="none"
+}
+//字体替换
+//document.cookie="cokia1=null; expires=Thu, 23 Dec 3022 12:00:00 GMT; path=/";
