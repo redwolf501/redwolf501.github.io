@@ -17,20 +17,15 @@ hr {
     color:#ff0000;
     height:80px;
 }
-/*class dt是网页顶部导航栏，dttb1 2是3条横线*/
-.dttb1 {
-    left:0;
-    right:0;
-    bottom:0;
-    height:4px;
-    background:#ff0000;
-}
-.dttb2 {
+/*class dt是网页顶部导航栏，dttb是3条横线*/
+.dttb {
     left:0;
     right:0;
     bottom:0;
     height:4px;
     background:#000000;
+    border-top:4px solid #ff0000;
+    border-bottom:4px solid #ff0000;
 }
 /*dbom是写内容的div框的父元素。dbo1是写内容的div。*/
 .dbom {
@@ -138,6 +133,7 @@ button.download {
 .ticon{/*工具栏图标*/
     font-size:45px;
     font-weight:bold;
+    color:#333333;
 }
 .tool:hover .tool1{
     display:block;
@@ -148,6 +144,7 @@ button.download {
     -ms-transform: rotate(180deg); /* IE 9 */
     -webkit-transform: rotate(180deg); /* Safari and Chrome */
 }
+/*set是设置弹窗*/
 #set{
     display:none;
     max-width:500px;width:90%;
@@ -166,6 +163,7 @@ div.sesw{
     border-bottom:1px solid #ccc;
     height:40px;
 }
+/*switch开关*/
 .switch {
   position: relative;
   display: inline-block;
@@ -187,7 +185,6 @@ div.sesw{
   -webkit-transition: .4s;
   transition: .4s;
 }
-
 .slider:before {
   position: absolute;
   content: "";
@@ -216,7 +213,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/*字体*/
 @font-face {
     font-family: maoti;
-    src: url(./ziti/maoti.ttf)
+    src: url(./ziti/maoti3.ttf)
+    /*src: url(./ziti/maoti.ttf)*/
 }/*毛体*/
+@font-face {
+    font-family: erjian;
+    src: url(./ziti/erjian.ttf)
+}/*二简*/
