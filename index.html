@@ -17,7 +17,7 @@ transition:width 0.5s,height 0.5s;
 }
 .dc1{/* sd photo/button_skin_download.png */
 top:0;left:0;
-background-image:url(https://s1.imagehub.cc/images/2022/12/22/8f9d0e2ccf00b65de790f3511a039c3a.png);
+background-image:url(https://s1.imagehub.cc/images/2022/12/22/0fc292183d262905e6d9756e2c91ee76.png);
 }
 .dc2{/* ad photo/button_addon_download.png */
 top:0;right:0;
@@ -38,13 +38,11 @@ z-index:2;
 }
         </style>
     </head>
-    <body>
+    <body id="body01">
         <div class="dt" style=""><!--顶上长栏-->
-            <div style="padding:5px"><span class="tdtx" style="">红狼网</span>
+            <div style="padding:5px"><!--img src="photo/tdtx.svg" height="60px"--><span class="tdtx" style="">红狼网</span>
             </div>
-            <div class="dttb1"></div>
-            <div class="dttb2"></div>
-            <div class="dttb1"></div>
+            <div class="dttb"></div>
         </div>
         <div class="dbom">
             <div class="dbo1">
@@ -75,7 +73,7 @@ z-index:2;
         <div id="set">
             <div style="text-align:center;">设置<div class="hs"><a onclick="hideset()"><i class="fa fa-times"></i></a></div></div>
             <hr style="height:1px;border:none;border-top:1px solid #ccc;"/>
-            <div class="sesw">开关示例<label class="switch"><input type="checkbox" onclick=""><div class="slider round"></div></label></div>
+            <div class="sesw">开关示例<label class="switch"><input id="seta" type="checkbox" onclick="seta()"><div class="slider round"></div></label></div>
             <p>暂无设置项</p>
         </div>
         
