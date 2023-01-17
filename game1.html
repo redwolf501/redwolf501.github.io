@@ -1,64 +1,65 @@
 <!DOCTAPE html>
-<html>
+<html lang="zh-CN">
     <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <title>游戏1</title>
     <style>
 .fdb{position:relative;height:100%}
 .dbody{
-width:100%;
-padding-top:66.6%;
-border:1px solid #ccc;
-box-sizing:border-box;
-background:#111;
-position:absolute;
-transform: translate(0,-50%);
-top:50%;
+    width:100%;
+    padding-top:66.6%;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+    background:#111;
+    position:absolute;
+    transform: translate(0,-50%);
+    top:50%;
 }
 .hr{
-background:url(photo/hr01.png);
-background-size:100%;
-background-repeat:no-repeat;
-background-position:center;
-width:16%;
-height:60%;
-position:absolute;
-top:7%;right:3%;
-z-index:2;
+    background:url(photo/hr01.png);
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:16%;
+    height:60%;
+    position:absolute;
+    top:7%;right:3%;
+    z-index:2;
 }
 .dhk{
-background:url(photo/dhk.png);
-background-size:100%;
-background-repeat:no-repeat;
-background-position:center 94%;
-width:100%;
-height:100%;
-position:absolute;
-bottom:0;
-left:0;
-z-index:1;
-/*padding:7%;padding-top:83%;*/
-box-sizing:border-box;
-font-size:43px;
-font-family:pix;
+    background:url(photo/dhk.png);
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center 94%;
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:1;
+    /*padding:7%;padding-top:83%;*/
+    box-sizing:border-box;
+    font-size:43px;
+    font-family:pix;
 }
 #dhk{
-position:absolute;
-top:70%;left:7%;right:7%;bottom:7%;
-overflow: scroll;
+    position:absolute;
+    top:70%;left:7%;right:7%;bottom:7%;
+    overflow: scroll;
 }
 .cont{
-position:absolute;
-right:9%;bottom:9%;
-z-index:3;
-font-size:90px;
+    position:absolute;
+    right:9%;bottom:9%;
+    z-index:3;
+    font-size:90px;
 }
 @font-face{
-font-family: pix;
-src: url(./ziti/pix.ttf)
+    font-family: pix;
+    src: url(./ziti/pix.ttf)
 }/*像素字体*/
 .bgm{
-display:none;
+    display:none;
 }
     </style>
     </head>
@@ -71,48 +72,45 @@ display:none;
     <div class="bgm"><audio controls autoplay loop><source src="https://redwolf501.github.io/photo/game1bgm1.mp3" type="audio/mpeg"><source src="photo/game1bgm1.mp3" type="audio/mpeg">[音乐]</audio></div>
     
 <script>
-var dhk = document.getElementById("dhk");
+var dhk = document.getElementById("dhk");//对话框文字
 var conta = document.getElementById("conta");
+var dzend;//打字结束(布尔值)
+var n=0;//对话步骤
 function cont(){//cont0
-    //dhk.innerHTML="今天过得如何";
-    conta.getAttributeNode('onclick').value=('cont1()');
-    str = "今天过得如何";
-    i=0;
-    typing();
+    //conta.getAttributeNode('onclick').value=('cont1()');
+    if(dzend==false){
+    i=str.length+1;
+    }
+    else{n=n+1;i=0;ccc();}
 }
-function cont1(){
-    //dhk.innerHTML="哦，我还没有设计选择按钮，你不能对话";
-    conta.getAttributeNode('onclick').value=('cont2()');
-    str = "哦，我还没有设计选择按钮，你不能对话";
-    i=0;
+function ccc(){
+    if(n==0){}
+    else if(n==1){
+        str = "今天过得如何";
+    }
+    else if(n==2){
+        str = "哦，我还没有设计选择按钮，你不能对话";
+    }
+    else if(n==3){
+        str = "待会见了同志";
+    }
+    else{
+        str = "[对话已结束]";
+        i=str.length+1;
+    }
     typing();
-}
-function cont2(){
-    //dhk.innerHTML="待会见了同志";
-    conta.getAttributeNode('onclick').value=('cont3()');
-    str = "待会见了同志";
-    i=0;
-    typing();
-}
-function cont3(){
-    dhk.innerHTML="[对话已结束]";
-    conta.getAttributeNode('onclick').value=('cont4()');
 }
 //日安，工农兵→今天过得如何→哦，我还没有设计选择按钮，你不能对话→待会见了同志→结束对话
 </script>
 <script>
-var oc1 = conta.getAttributeNode('onclick').value;
-function enterHandler(event){
-	//获取用户单击键盘的“键值”
-	var keyCode = event.keyCode ? event.keyCode 
-	: event.which ? event.which : event.charCode;
-	//如果是空格键
-	if (keyCode == 32){
-		if(oc1="cont()"){
-	        cont()
-		}
-	}
-}
+//空格继续
+window.onkeydown = function (event) {
+    //解决兼容性问题
+    event = event || window.event;
+    if (event.keyCode == 32) {
+        cont();
+    }
+};
 </script>
   <script>
     var str = "日安，工农兵";
@@ -125,10 +123,13 @@ function enterHandler(event){
         // start 参数必须要有，end 可以没有，默认数组最后一个
         divTyping.innerHTML = str.slice(0, i++) + "_";
         setTimeout("typing()", 150); // 递归调用
+        dzend=false;
       } else {
         divTyping.innerHTML = str; // 结束打字，移除光标
+        dzend=true;
       }
     }
+    
     // 该函数实际上不是一个个输出，只是后面的长度多一的字符串覆盖前面的字符串
     typing();
     //typing1();
