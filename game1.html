@@ -59,6 +59,21 @@
     src: url(./ziti/pix.ttf)
 }/*像素字体*/
 .bgm{
+    
+    display:none;
+    
+}
+.muon{
+    color:#fff;
+    font-size:30px;
+    position:absolute;
+    top:5%;
+    left:5%;
+    transition:color 1s;
+    z-index:3;
+}
+.muon:hover{color:#ccc;}
+#banmu{
     display:none;
 }
     </style>
@@ -66,20 +81,24 @@
     <body>
     <div class="fdb"><div class="dbody">
         <div class="hr"></div>
-        <div class="dhk"><div id="dhk">日安，工农兵</div></div>
+        <div class="dhk"><div id="dhk"><nojavascript>JavaScript未运行</nojavascript></div></div>
         <div class="cont"><a id="conta" style="color:#333" onclick="cont()"><i class="fa fa-angle-double-right"></i></a></div>
+        <a onclick="bgmonc()"><div class="muon"><span class="fa-stack fa-lg"><i class="fa fa-music fa-stack-1x"></i><i id="banmu" class="fa fa-ban fa-stack-2x text-danger" style=""></i></span></div></a>
     </div></div>
-    <div class="bgm"><audio controls autoplay loop><source src="https://redwolf501.github.io/photo/game1bgm1.mp3" type="audio/mpeg"><source src="photo/game1bgm1.mp3" type="audio/mpeg">[音乐]</audio></div>
+    <div class="bgm"><audio id="bgmau" controls autoplay loop>
+    <source src="file/game1bgm1.mp3" type="audio/mpeg">
+    <source src="https://redwolf501.github.io/file/game1bgm1.mp3" type="audio/mpeg">[音乐]
+    </audio></div>
     
 <script>
 var dhk = document.getElementById("dhk");//对话框文字
 var conta = document.getElementById("conta");
-var dzend;//打字结束(布尔值)
+var dzend=false;//打字结束(布尔值)
 var n=0;//对话步骤
 function cont(){//cont0
     //conta.getAttributeNode('onclick').value=('cont1()');
     if(dzend==false){
-    i=str.length+1;
+        i=str.length+1;
     }
     else{n=n+1;i=0;ccc();}
 }
@@ -101,8 +120,8 @@ function ccc(){
     typing();
 }
 //日安，工农兵→今天过得如何→哦，我还没有设计选择按钮，你不能对话→待会见了同志→结束对话
-</script>
-<script>
+
+
 //空格继续
 window.onkeydown = function (event) {
     //解决兼容性问题
@@ -111,10 +130,11 @@ window.onkeydown = function (event) {
         cont();
     }
 };
-</script>
-  <script>
-    var str = "日安，工农兵";
-    var i = 0;
+
+
+//打字效果
+    var str = "日安，工农兵";//对话框需要输入的文字
+    var i = 0;//打字进度
  
     function typing() {
       var divTyping = document.getElementById("dhk");
@@ -133,6 +153,22 @@ window.onkeydown = function (event) {
     // 该函数实际上不是一个个输出，只是后面的长度多一的字符串覆盖前面的字符串
     typing();
     //typing1();
-  </script>
+
+var bgmau=document.getElementById("bgmau");
+var banmu=document.getElementById("banmu");
+function bgmonc(){
+    if(bgmau.readyState != 4){
+        alert("音频暂时无法播放，可能是未加载成功或发生了错误。readyState=" + bgmau.readyState + "，buffered=" + bgmau.buffered)
+    }
+    if(  bgmau.paused  ){
+        bgmau.play();
+        banmu.style.display="none";
+    }else{
+        bgmau.pause();
+        banmu.style.display="block";
+    }
+}
+
+</script>
     </body>
 </html>
