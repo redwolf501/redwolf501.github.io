@@ -1,0 +1,195 @@
+<!DOCTAPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>游戏1</title>
+    <style>
+.fdb{position:relative;height:100%}
+.dbody{
+    width:100%;
+    padding-top:66.6%;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+    background:#111;
+    position:absolute;
+    transform: translate(0,-50%);
+    top:50%;
+}
+.hr{
+    background-image:url(photo/hr01.png),url(https://s1.imagehub.cc/images/2023/01/17/f4fb17d8696fa820f450dc1edccc6ec8.png);
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:16%;
+    height:60%;
+    position:absolute;
+    top:7%;right:3%;
+    z-index:2;
+}
+.dhk{
+    /*background:url(photo/dhk.png);*/
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center 94%;
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index:1;
+    /*padding:7%;padding-top:83%;*/
+    box-sizing:border-box;
+    font-size:43px;
+    font-family:pix;
+}
+#dhk{
+    position:absolute;
+    top:70%;left:4%;right:15%;bottom:6%;
+    overflow: scroll;
+    border:1px solid;
+    border-image-source: url(./photo/dhkb.png);
+    border-image-outset: 50px;
+    border-image-slice: 100 fill;
+    border-image-width: 100px;
+    padding:20px;background:#fff;
+}
+.cont{
+    position:absolute;
+    z-index:3;
+    font-size:90px;
+    color:#fff;
+}
+.cont1{
+    right:5%;bottom:18%;
+}
+.cont2{
+    right:5%;bottom:6%;
+    display:none;
+}
+@font-face{
+    font-family: pix;
+    src: url(./ziti/pix.ttf)
+}/*像素字体*/
+.bgm{
+    
+    display:none;
+    
+}
+.muon{
+    color:#fff;
+    font-size:30px;
+    position:absolute;
+    top:5%;
+    left:5%;
+    transition:color 1s;
+    z-index:3;
+}
+.muon:hover{color:#ccc;}
+#banmu{
+    display:none;
+}
+    </style>
+    </head>
+    <body>
+    <div class="fdb"><div class="dbody">
+        <div class="hr"></div>
+        <div class="dhk"><div id="dhk"><nojavascript>JavaScript未运行</nojavascript></div></div>
+        <div class="cont cont1"><a id="conta" onclick="cont(a)"><i class="fa fa-angle-double-right"></i></a></div>
+        <div class="cont cont2"><a id="contb" onclick="cont(b)"><i class="fa fa-angle-double-right"></i></a></div>
+        <a onclick="bgmonc()"><div class="muon"><span class="fa-stack fa-lg"><i class="fa fa-music fa-stack-1x"></i><i id="banmu" class="fa fa-ban fa-stack-2x text-danger" style=""></i></span></div></a>
+    </div></div>
+    <div class="bgm"><audio id="bgmau" controls autoplay loop>
+    <source src="file/game1bgm1.mp3" type="audio/mpeg">
+    <source src="https://redwolf501.github.io/file/game1bgm1.mp3" type="audio/mpeg">[音乐]
+    </audio></div>
+    
+<script>
+var dhk = document.getElementById("dhk");//对话框文字
+var conta = document.getElementById("conta");//cont函数的a标签
+var dzend=false;//打字结束(布尔值)
+var n=0;//对话步骤
+var dhpath="a";//对话路径
+var cont2=document.getElementByClassName("cont2")[0];
+function cont(){//cont0，触发对话
+    //conta.getAttributeNode('onclick').value=('cont1()');
+    if(dzend==false){//打字未完成结束打字
+        i=str.length+1;
+    }
+    else{
+        n=n+1;
+        i=0;
+        ccc();
+    }//下一句
+}
+function ccc(){
+    if(n==0){}
+    else if(n==1){
+        str = "今天过得如何";
+    }
+    else if(n==2){
+        str = "哦，我还没有设计选择按钮，你不能对话";
+    }
+    else if(n==3){
+        str = "待会见了同志";
+    }
+    else{
+        str = "[对话已结束]";
+        i=str.length+1;
+        cont2.style.display="block";
+    }
+    typing();
+}
+//日安，工农兵→今天过得如何→哦，我还没有设计选择按钮，你不能对话→待会见了同志→结束对话
+
+
+//空格继续
+window.onkeydown = function (event) {
+    //解决兼容性问题
+    event = event || window.event;
+    if (event.keyCode == 32) {
+        cont();
+    }
+};
+
+
+//打字效果
+    var str = "日安，工农兵";//对话框需要输入的文字
+    var i = 0;//打字进度
+ 
+    function typing() {
+      var divTyping = document.getElementById("dhk");
+      if (i <= str.length) {
+        // str.slice(start, end) 切片函数，切取数组中的从start到end的字符串，不修改原数组
+        // start 参数必须要有，end 可以没有，默认数组最后一个
+        divTyping.innerHTML = str.slice(0, i++) + "_";
+        setTimeout("typing()", 150); // 递归调用
+        dzend=false;
+      } else {
+        divTyping.innerHTML = str; // 结束打字，移除光标
+        dzend=true;
+      }
+    }
+    
+    // 该函数实际上不是一个个输出，只是后面的长度多一的字符串覆盖前面的字符串
+    typing();
+    //typing1();
+
+var bgmau=document.getElementById("bgmau");
+var banmu=document.getElementById("banmu");
+function bgmonc(){
+    if(bgmau.readyState != 4){
+        alert("音频暂时无法播放，可能是未加载成功或发生了错误。readyState=" + bgmau.readyState + "，buffered=" + bgmau.buffered)
+    }
+    if(  bgmau.paused  ){
+        bgmau.play();
+        banmu.style.display="none";
+    }else{
+        bgmau.pause();
+        banmu.style.display="block";
+    }
+}
+document.cookie = "cookie01=10; expires=Sun, 31 Dec 3023 12:00:00 UTC";
+</script>
+    </body>
+</html>
