@@ -1,0 +1,72 @@
+<!-- http://shenfenzheng.sougongju.com/ -->
+<!--  -->
+<body>
+<div id="msg"></div>
+<input id="wordinput" type="text" class="form-control" placeholder="请填写" value="">
+<!--  -->
+<a style="color:blue;" onclick="thebegin()">开始运行！</a>
+<noscript>NoScript!</noscript>
+<div style="background:#eee;" id="lookit">报告数据：</div>
+<script>
+/*function sleep(n){//等待运行
+    var start=new Date().getTime();//定义起始时间的毫秒数
+ 
+    while(true){
+        var time=new Date().getTime();//每次执行循环取得一次当前时间的毫秒数
+        if(time-start>n){//如果当前时间的毫秒数减去起始时间的毫秒数大于给定的毫秒数，即结束循环
+            break;
+        }
+    }
+}*/
+
+function thebegin(){
+for(var i=1;i<13;i++){
+    if(i != 2){
+        if(i%2==0){
+            if(i<7){//4~6
+                func(30,i);
+            }else{//8~12
+                func(31,i);
+            }
+        }else{
+            if(i<8){//1~7月
+                func(31,i);
+            }else{//9~11月
+                func(30,i);
+            }
+        }
+    }else{
+        func(28,i);
+    }
+}
+}
+var sfzzz;
+function func(iday,imon){
+imon=""+imon;
+if(imon.length<2){imon="0"+imon}
+func01(iday,imon);
+}
+var lookit=document.getElementById("lookit");
+
+function func01(iday,imon){
+    for(var iis=1;iis<=iday;iis++){
+        var gda;
+        var imona;
+        if(iis<10){iis="0"+iis}
+        if(imon<10){imona="0"+imon}else{imona=imon}
+        gda=imon+""+iis;
+        sfzzz="4414241989"+ gda +"5112";
+        document.getElementById("wordinput").getAttributeNode("value").value=sfzzz;
+        //alert(sfzzz);
+        imona=imon;
+        checkForm();
+        lookit.innerHTML=lookit.innerHTML+"</br>"+gda+"："+document.getElementById("msg").innerHTML;
+    }
+}
+
+function checkForm(){return false;}
+</script>
+
+<--  -->
+</body>
+<!--  -->
