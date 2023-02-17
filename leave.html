@@ -8,34 +8,6 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><!--font-awesome图标-->
         <style tape="text-css">
-.dc0{
-position:absolute;
-border:1px solid #770000;
-width:49.5%;height:49%;
-background-size:100% 100%;
-transition:width 0.5s,height 0.5s;
-}
-.dc1{/* sd photo/button_skin_download.png */
-top:0;left:0;
-background-image:url(https://s1.imagehub.cc/images/2022/12/22/0fc292183d262905e6d9756e2c91ee76.png);
-}
-.dc2{/* ad photo/button_addon_download.png */
-top:0;right:0;
-background-image:url(https://s1.imagehub.cc/images/2022/12/22/8f9d0e2ccf00b65de790f3511a039c3a.png);
-}
-.dc3{/* hty photo/button_history.png */
-bottom:0;left:0;
-background-image:url(https://s1.imagehub.cc/images/2022/12/22/422d8605101bcfc2aa31df27439954f8.png);
-}
-.dc4{/* talk photo/button_talk.png */
-bottom:0;right:0;
-background-image:url(https://s1.imagehub.cc/images/2022/12/22/28bd1c8e3453c80ea0bee1a7eaa211cc.png);
-}
-.dc0:hover{
-width:50%;
-height:50%;
-z-index:2;
-}
         </style>
     </head>
     <body id="body01">
@@ -70,10 +42,14 @@ z-index:2;
         <script type="text/javascript" src="main.js" ></script>
 
     <script>
-var x=new Date();
-x.setFullYear(2023,0,13);
-var today = new Date();
-document.getElementById("demo").innerHTML=(today-x)/1000/60/60/24;
+function x(){
+    var x=new Date();
+    x.setFullYear(2023,0,13);
+    var today = new Date();
+    document.getElementById("demo").innerHTML=Math.round( (today-x)/1000/60/60/24 );
+}
+x();
+setInterval(function(){x()},3000);
     </script>
     </body>
 </html>
