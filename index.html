@@ -1,3 +1,4 @@
+
 <!DOCTAPE html>
 <html>
     <head>
@@ -8,6 +9,10 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css"><!--font-awesome图标-->
         <style tape="text-css">
+#canvascontainer{
+display:flex;
+justify-content: center;
+}
 .dc0{
 position:absolute;
 border:5px solid #FF0000;
@@ -62,7 +67,8 @@ z-index:2;
                     <p>–==≡≡≡≡<span class="star">☭</span>≡≡≡≡==–</p>
                     <p><span class="" style="font-size:40px;font-weight:bold;">战无不胜的开源文化万岁</span></p>
                     <!--p><a style="color:#990000;text-decoration:underline;" href="liaojie.html">点击这里了解什么是“红狼”</a></p--> 
-                    <!--img src="photo/2.png" width="920" alt="图片"--> <img src="https://img.picui.cn/free/2024/07/16/66968b3c3ca24.png" width="100%" alt="图片">
+                    <!--img src="photo/2.png" width="920" alt="图片"--> <!--img src="https://img.picui.cn/free/2024/07/16/66968b3c3ca24.png" width="100%" alt="图片"-->
+                    <div id="canvascontainer"></div>
                 </div>
             </div> <br>
             <div class="dbo1" style="position:relative;padding-top:57%;"><div style="position:absolute;top:6;left:6;right:6;bottom:6;">
@@ -89,12 +95,149 @@ z-index:2;
             <p>暂无设置项</p>
         </div>
         
-        <script type="text/javascript" src="main.js" ></script>
+        <script src="main.js" ></script>
         
         <!--
         注释：图片链接“成就:大海航行靠舵手” https://www.bing.com/images/blob?bcid=S4WFWtZWydYErA “成就:东方红巴黎” https://www.bing.com/images/blob?bcid=S7cetHJwRdYEfg
         -->
+        <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+        <script>
+// first we need to create a stage
+var stage = new Konva.Stage({
+  container: 'canvascontainer',   // id of container <div>
+  width: 700*0.3,
+  height: 900*0.3
+});
+
+// then create layer
+var layer = new Konva.Layer();
+
+// create our shape
+var circle = new Konva.Circle({
+  x: stage.width() / 2,
+  y: stage.height() / 2,
+  radius: 70,
+  fill: '/photo/lee_eye.png',
+  strokeWidth: 0
+});
+
+var imgs={urlbase:"//redwolf501.github.io"};
+imgs.lee_photo_ne=new Image();
+imgs.lee_photo_ne.src=imgs.urlbase+"/photo/lee_photo_ne.png";
+imgs.lee_eye=new Image();
+imgs.lee_eye.src=imgs.urlbase+"/photo/lee_eye.png";
+// add the shape to the layer
+
+!(function(){
+    let loadnum=0;
+    f=function(){
+        loadnum++;
+        if(loadnum===2){
+            let scalebase=0.3;
+            let img1 = new Konva.Image({
+              x: 0,
+              y: 0,
+              image: imgs.lee_photo_ne,
+              width: 700*scalebase,
+              height: 900*scalebase
+            });
+            let img2 = new Konva.Image({
+              x: (700*0.5-120)*scalebase,
+              y: (900*0.5-5)*scalebase,
+              image: imgs.lee_eye,
+              width: 29*scalebase,
+              height: 30*scalebase
+            });
+            layer.add(img1);
+            layer.add(img2);
+            Cjr.load(img2)
+            layer.draw();
+        }
+    };
+    imgs.lee_photo_ne.addEventListener("load",f,true);
+    imgs.lee_eye.addEventListener("load",f,true);
+})();
+
+
+// add the layer to the stage
+stage.add(layer);
+// draw the image
+layer.draw();
+
+
+var Vector={
+    add(v1,v2){
+        return {x:v1.x+v2.x,y:v1.y+v2.y};
+    },
+    sub(v1,v2){
+        return {x:v1.x-v2.x,y:v1.y-v2.y};
+    },
+    mult(v,n){
+        return {x:v.x*n,y:v.y*n};
+    },
+    magnitude(v){
+        return (v.x**2+v.y**2)**0.5;
+    }
+};
+
+var Cjr={
+    position:{x:0,y:0},
+    rollposition:{x:0,y:0},
+    mouseposition:{x:0,y:0},
+    radius:30,
+    scalebase:0.3,
+    img:undefined,
+    el:document.querySelector("#canvascontainer canvas"),
+    tid:-1,
+    load(img){
+        this.img=img;
+        this.position=this.img.absolutePosition();
+        this.radius=this.radius*this.scalebase;
         
+        document.addEventListener('mousemove',Cjr.touch.bind(Cjr),true);
+        document.addEventListener('click',Cjr.touch.bind(Cjr),true);
+        this.load=function(){};
+    },
+    render(){
+      this.img.absolutePosition({x:this.position.x+this.rollposition.x,y:this.position.y+this.rollposition.y});
+    },
+    evposition(event){
+        let coffset={x:this.el.offsetLeft,y:this.el.offsetTop};
+        if(event.offsetX){
+            return Vector.sub({x:event.offsetX,y:event.offsetY},coffset);
+        }else if(event.pageX){
+            return Vector.sub({x:event.pageX,y:event.pageY},coffset);
+        }else{
+            console.error("浏览器兼容性过低");
+        }
+    },
+    touch(touchposition,start,id){
+      let tmove=Vector.sub(this.evposition(touchposition),this.position)
+      let distance=Vector.magnitude(tmove)
+      
+      if(true){
+        this.touchposition=touchposition;
+        if(distance<=this.radius){
+          this.rollposition=tmove
+        }else{
+          this.rollposition=Vector.mult(tmove,this.radius/distance)
+        }
+      }
+      this.render();
+    },
+    end(event){
+        let endpoint=clickui({x: event.position.x, y: event.position.y});
+        if(endpoint.x===Cjr.touchposition.x && endpoint.y===Cjr.touchposition.y){
+            Cjr.cancel();
+        }
+    },
+    cancel(){
+        Cjr.istouch=false;
+        Cjr.rollposition=Vector.create();
+        Cjr.tid=-1;
+    }
+};
+        </script>
         
         
         
